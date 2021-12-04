@@ -566,6 +566,8 @@ if [[ $v_swap_size -gt 0 ]]; then
 fi
 
 echo "======= setting up initial system packages =========="
+wget http://security.ubuntu.com/ubuntu/pool/main/d/debootstrap/debootstrap_1.0.124ubuntu0.1_all.deb
+dpkg -i debootstrap_1.0.124ubuntu0.1_all.deb
 debootstrap --arch=amd64 impish "$c_zfs_mount_dir" "$c_deb_packages_repo"
 
 zfs set devices=off "$v_rpool_name"
